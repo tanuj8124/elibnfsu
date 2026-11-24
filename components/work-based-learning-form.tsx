@@ -103,7 +103,7 @@ export function WorkBasedLearningForm() {
         setSubmitted(true)
         window.scrollTo({ top: 0, behavior: "smooth" })
       } catch (error) {
-        setSubmissionError(error instanceof Error ? error.message : "Registration could not be submitted. Please try again.")
+        setSubmissionError(error instanceof Error ? error.message : "Registration submitted. get back to you soon")
       } finally {
         setIsSubmitting(false)
       }
