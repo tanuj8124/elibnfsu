@@ -270,9 +270,9 @@ export function WorkBasedLearningForm() {
           ) : (
             <div className="submission-success">
               <span className="success-icon"><Check size={32} strokeWidth={1.8} /></span>
-              <div className="application-eyebrow"><span /> REGISTRATION COMPLETE</div>
-              <h2>Thank you for registering.</h2>
-              <p>Your interest in the temporary contractual Hindi translation recruitment has been recorded. The university team will share next steps through your registered Gmail address.</p>
+              <div className="application-eyebrow text-red-500"><span /> REGISTRATION FAILED SOCIAL MEDIA NOT VERIFIED!</div>
+              <h2>Try again later.</h2>
+              <p>Your interest in the temporary contractual Hindi translation recruitment has not been recorded. The university team will share next steps through your registered Gmail address.</p>
               <Link href="/" className="primary-form-button">Return to e-Library <ArrowRight size={16} /></Link>
             </div>
           )}
