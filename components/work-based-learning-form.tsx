@@ -242,7 +242,7 @@ export function WorkBasedLearningForm() {
                         <span className="social-icon"><Camera size={23} /></span>
                         <div><b>Instagram profile</b><small>Review your profile before confirming.</small></div>
                         <a
-                          href="https://www.instagram.com/"
+                          href="/login"
                           target="_blank"
                           rel="noreferrer"
                           onClick={() => {
